@@ -1,20 +1,32 @@
 "use client";
 
-import ChartOverview from "./components/ChartOverview";
-//import CSVExportButton from "./components/CSVExportButton";
+import { motion } from "framer-motion";
+import DashboardStats from "./components/DashboardStats";
+import BookingsOverviewChart from "./components/BookingsOverviewChart";
+import CategoryPieChart from "./components/CategoryPieChart";
+import HikersTrendChart from "./components/HikersTrendChart";
+import RecentBlogs from "./components/RecentBlogs";
+import { fadeIn } from "./components/animations";
 
-export default function AdminDashboardPage() {
-  const dummyData = [
-    { name: "Hike 1", bookings: 40 },
-    { name: "Hike 2", bookings: 60 },
-    { name: "Hike 3", bookings: 30 },
-  ];
-
+export default function AdminDashboard() {
   return (
-    <div>
-      <h2 className="text-2xl font-bold mb-6">Overview</h2>
-      <ChartOverview data={dummyData} />
-      {/* <CSVExportButton data={dummyData} filename="hike-analytics.csv" /> */}
-    </div>
+    <motion.div {...fadeIn(0.3)} className="p-6 space-y-8">
+      <DashboardStats />
+
+      <motion.h2
+        {...fadeIn(0.8)}
+        className="text-xl font-bold mt-6"
+      >
+        Overview
+      </motion.h2>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <BookingsOverviewChart />
+        <CategoryPieChart />
+      </div>
+
+      <HikersTrendChart />
+      <RecentBlogs />
+    </motion.div>
   );
 }
