@@ -16,7 +16,7 @@ export default function RecentBlogs() {
           >
             <Card className="overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
               <img
-                src={`https://source.unsplash.com/random/400x300?sig=${i}&hiking`}
+                src="/logo.png"
                 alt="Blog"
                 className="w-full h-48 object-cover"
               />
