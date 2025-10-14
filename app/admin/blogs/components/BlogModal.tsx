@@ -17,7 +17,7 @@ export default function BlogModal({ initial, onClose, onSave }: { initial?: Blog
         <input value={image} onChange={(e) => setImage(e.target.value)} className="w-full p-2 border rounded mb-2" placeholder="Image URL (or later upload)" />
         <div className="flex justify-end gap-2 mt-3">
           <button className="px-3 py-1 border" onClick={onClose}>Cancel</button>
-          <button className="px-3 py-1 bg-blue-600 text-white rounded" onClick={() => onSave({ id: initial?.id ?? '', title, content, image, createdAt: initial?.createdAt })}>Save</button>
+          <button className="px-3 py-1 bg-green-600 text-white rounded" onClick={() => onSave({ id: initial?.id ?? '', title, content, image, createdAt: initial?.createdAt })}>Save</button>
         </div>
       </div>
     </div>

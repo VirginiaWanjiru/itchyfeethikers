@@ -32,7 +32,7 @@ export default function BlogsPage() {
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-semibold">Blogs</h2>
         <div>
-          <button onClick={() => setOpen(true)} className="bg-blue-600 px-3 py-1 text-white rounded">Add Blog</button>
+          <button onClick={() => setOpen(true)} className="bg-green-600 px-3 py-1 text-white rounded">Add Blog</button>
         </div>
       </div>
 

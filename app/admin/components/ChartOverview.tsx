@@ -15,7 +15,7 @@ export default function ChartOverview({ data }: { data: DataItem[] }) {
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Bar dataKey="bookings" fill="#2563eb" />
+          <Bar dataKey="bookings" fill="#2E5E4E" />
         </BarChart>
       </ResponsiveContainer>
     </div>

@@ -19,7 +19,7 @@ export default function HikeCard({ hike }: { hike: Hike }) {
       <p className="text-sm text-gray-500 mt-1">
         Level: {hike.level} | Duration: {hike.duration} hrs
       </p>
-      <span className="text-blue-600 font-bold mt-2">Ksh {hike.price}</span>
+      <span className="text-green-600 font-bold mt-2">Ksh {hike.price}</span>
     </div>
   );
 }

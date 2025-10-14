@@ -15,15 +15,15 @@ const links = [
 export default function Sidebar() {
   const pathname = usePathname();
   return (
-    <aside className="w-64 bg-blue-900 text-white flex flex-col">
-      <h2 className="text-2xl font-bold p-4 border-b border-blue-700">ItchyFeet Admin</h2>
+    <aside className="w-64 bg-green-900 text-white flex flex-col">
+      <h2 className="text-2xl font-bold p-4 border-b border-green-700">ItchyFeet Admin</h2>
       <nav className="flex-1 p-2">
         {links.map((link) => (
           <Link
             key={link.href}
             href={link.href}
             className={`block p-2 rounded-md mb-1 ${
-              pathname === link.href ? "bg-blue-700" : "hover:bg-blue-800"
+              pathname === link.href ? "bg-green-900" : "hover:bg-green-800"
             }`}
           >
             {link.label}
