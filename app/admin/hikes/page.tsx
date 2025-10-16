@@ -5,7 +5,9 @@ import Modal from "../components/Modal";
 
 export default function HikesPage() {
   const [hikes, setHikes] = useState([
-    { id: "1", name: "Mt. Longonot", description: "Crater hike", price: 1500, level: "medium", duration: 4, image: "/images/hike1.jpg" },
+    { id: "1", name: "Mt. Longonot", description: "Crater hike", price: 6500, level: "medium", duration: 4, image: "/image.png" },
+    { id: "2", name: "Mt. Kenya", description: "Mountain hike", price: 7000, level: "medium", duration: 4, image: "/image.png" },
+    
   ]);
   const [showModal, setShowModal] = useState(false);
 
@@ -29,6 +31,7 @@ export default function HikesPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {hikes.map((hike) => (
           <HikeCard key={hike.id} hike={hike} />
+          
         ))}
       </div>
 
