@@ -100,13 +100,18 @@ export const CommunityForum: React.FC = () => {
   };
 
   const formatDate = (iso: string) => {
-    try {
-      const dt = new Date(iso);
-      return dt.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
-    } catch {
-      return iso;
-    }
-  };
+  try {
+    const dt = new Date(iso);
+    return dt.toLocaleDateString("en-GB", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  } catch {
+    return iso;
+  }
+};
+
 
   return (
     <section className="py-20 bg-gradient-to-b from-muted/30 via-background to-muted/20 relative overflow-hidden">
