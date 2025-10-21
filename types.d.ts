@@ -1,0 +1,30 @@
+// global.d.ts
+declare module 'gsap';
+declare module 'gsap/*';
+// fallback for path alias modules if needed:
+declare module '@/components/*';
+declare module '@/components/*';
+declare module '@/utils/*';
+declare module '@/styles/*';
+declare module '@/hooks/*';
+declare module '@/assets/*';
+declare module '@/layouts/*';
+declare module '@/pages/*';
+declare module '@/context/*';
+declare module '@/services/*';
+declare module '@/config/*' ;
+declare module '@/types/*';
+declare module '@/lib/*';
+declare module '@/store/*';
+declare module '@/i18n/*';
+declare module '@/plugins/*';
+declare module '@/middleware/*';
+declare module '@/directives/*' ;
+declare module '@/filters/*';
+declare module '@/mixins/*' ;
+declare module '@/animations/*';
+declare module '@/constants/*';
+declare module '@/data/*';
+declare module '@/validations/*';
+declare module '@/schemas/*';
+declare module '@/models/*';
