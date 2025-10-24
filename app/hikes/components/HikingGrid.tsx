@@ -68,7 +68,7 @@ const HikingGrid = () => {
   const totalPages = 7;
 
   return (
-    <div className="flex-1 space-y-6">
+    <div className="flex-1 space-y-6 max-w-3xl mx-auto"> {/* Changed from max-w-5xl to max-w-3xl */}
       {/* Search and View Toggle */}
       <div className="flex items-center gap-3">
         <div className="relative flex-1">
@@ -141,5 +141,7 @@ const HikingGrid = () => {
     </div>
   );
 };
+
+export { hikesData };
 
 export default HikingGrid;
