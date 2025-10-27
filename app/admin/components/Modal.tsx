@@ -3,12 +3,13 @@ import { useState } from "react";
 
 export default function Modal({ onClose, onSave }: any) {
   const [formData, setFormData] = useState({
-    name: "",
     description: "",
+    image_url: "",
     price: "",
     level: "easy",
-    duration: "",
-    image: "",
+    duration_hours: "",
+    date: "",
+    name: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -49,15 +50,22 @@ export default function Modal({ onClose, onSave }: any) {
           <option value="hard">Hard</option>
         </select>
         <input
-          name="duration"
+          name="duration_hours"
           placeholder="Duration (hours)"
           type="number"
           className="w-full border p-2 rounded mb-2"
           onChange={handleChange}
         />
         <input
-          name="image"
+          name="image_url"
           placeholder="Image URL"
+          className="w-full border p-2 rounded mb-2"
+          onChange={handleChange}
+        />
+        <input
+          name="date"
+          placeholder="Date (YYYY-MM-DD)"
+          type="date"
           className="w-full border p-2 rounded mb-2"
           onChange={handleChange}
         />

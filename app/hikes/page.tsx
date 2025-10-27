@@ -1,4 +1,3 @@
-// app/hikes/page.tsx
 //import HikingHeader from "@/components/HikingHeader";
 //import HikingHero from "@/components/HikingHero";
 import HikingFilters from "./components/HikingFilters";
