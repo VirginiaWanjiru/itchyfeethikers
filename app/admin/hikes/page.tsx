@@ -1,20 +1,64 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HikeCard from "../components/HikeCard";
 import Modal from "../components/Modal";
+import { Hike } from '../../admin/types/hikes';
 
-export default function HikesPage() {
-  const [hikes, setHikes] = useState([
-    { id: "1", name: "Mt. Longonot", description: "Crater hike", price: 6500, level: "medium", duration: 4, image: "/image.png" },
-    { id: "2", name: "Mt. Kenya", description: "Mountain hike", price: 7000, level: "medium", duration: 4, image: "/image.png" },
-    
-  ]);
+export default function page() {
+  const [hikes, setHikes] = useState< Hike[]>([]);
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const handleAddHike = (newHike: any) => {
-    setHikes([...hikes, newHike]);
+  // ✅ Fetch all hikes from backend API
+  useEffect(() => {
+    const fetchHikes = async () => {
+      try {
+        const res = await fetch("/api/hikes");
+        if (!res.ok) throw new Error("Failed to fetch hikes");
+        const data = await res.json();
+        setHikes(data);
+      } catch (err) {
+        console.error("Error loading hikes:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchHikes();
+  }, []);
+
+ const handleAddHike = async (newHike: Hike) => {
+  try {
+    // Convert strings to numbers before sending
+    const formattedHike = {
+      ...newHike,
+      price: Number(newHike.price),
+      duration_hours: Number(newHike.duration_hours),
+    };
+
+    const res = await fetch("/api/hikes", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formattedHike),
+    });
+
+    if (!res.ok) {
+      const errData = await res.json();
+      console.error("Supabase error:", errData);
+      throw new Error("Failed to add hike");
+    }
+
+    const created = await res.json();
+    setHikes((prev) => [...prev, created]);
     setShowModal(false);
-  };
+  } catch (err) {
+    console.error("Error creating hike:", err);
+    alert("Failed to add hike");
+  }
+};
+
+
+  if (loading) return <p>Loading hikes...</p>;
 
   return (
     <div>
@@ -28,14 +72,19 @@ export default function HikesPage() {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {hikes.map((hike) => (
-          <HikeCard key={hike.id} hike={hike} />
-          
-        ))}
-      </div>
+      {hikes.length === 0 ? (
+        <p>No hikes available yet.</p>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {hikes.map((hike) => (
+            <HikeCard key={hike.id} hike={hike} />
+          ))}
+        </div>
+      )}
 
-      {showModal && <Modal onClose={() => setShowModal(false)} onSave={handleAddHike} />}
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)} onSave={handleAddHike} />
+      )}
     </div>
   );
 }
