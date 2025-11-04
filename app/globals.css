@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -79,6 +80,7 @@
   --badge-beginner: 142 76% 36%;
   --badge-intermediate: 25 95% 53%;
   --badge-advanced: 0 84% 60%; 
+  
 }
 
 .dark {

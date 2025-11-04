@@ -84,7 +84,7 @@ const Profile = () => {
       location: "Nanyuki, Kenya",
       difficulty: "Hard",
       image:
-        "https://images.unsplash.com/photo-1603366615917-1fa6dad5c4fa?auto=format&fit=crop&w=800&q=80",
+        "/mount-kenya.jpeg",
     },
     {
       id: 2,
@@ -92,7 +92,7 @@ const Profile = () => {
       location: "Nairobi, Kenya",
       difficulty: "Easy",
       image:
-        "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80",
+        "/karura.png",
     },
     {
       id: 3,
@@ -100,7 +100,7 @@ const Profile = () => {
       location: "Naivasha, Kenya",
       difficulty: "Medium",
       image:
-        "https://images.unsplash.com/photo-1602416014133-bf3fa4b7a74b?auto=format&fit=crop&w=800&q=80",
+        "/hells-gate.jpg",
     },
   ];
 
